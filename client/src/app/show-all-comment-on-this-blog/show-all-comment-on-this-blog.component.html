@@ -8,14 +8,17 @@
   <title>All comments on this perticular blogs</title>
 </head>
 <body>
-  <div *ngFor="let usercommet of AllCommentsWithUser">
-    <div class="commentblog" class="container">
-      <h1>{{usercommet.name}}</h1>
-      <br>
-      <br>
-      <h3>{{usercommet.text}}</h3>
+  <div class="comments-container">
+    <div *ngFor="let usercomment of AllCommentsWithUser" class="comment">
+        <div class="avatar">
+            <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="User Avatar">
+        </div>
+        <div class="comment-content">
+            <h3>{{usercomment.name}}</h3>
+            <p>{{usercomment.text}}</p>
+        </div>
     </div>
-  </div>
+</div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
