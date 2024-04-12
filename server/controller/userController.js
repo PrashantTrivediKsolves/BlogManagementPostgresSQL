@@ -1,7 +1,7 @@
 import { UserModel } from "../postgres/postgres.js"
 export const getAllEmp=async(req,res)=>
 {
-    // console.log("GET bhai");
+    // console.log("GET bhai");...............
     try{
         const users=await UserModel.findAll();
         if(users.length==0)
@@ -9,7 +9,6 @@ export const getAllEmp=async(req,res)=>
             return res.status(200).json({err:"User not found"})
         }
         return res.status(200).json(users);
-
     }
     catch(err)
     {
@@ -17,8 +16,34 @@ export const getAllEmp=async(req,res)=>
         return res.status(500).json({err:"Enternal server error"});
     }
 }
-// post
+export const getEmp = async (req, res) => {
+    try {
+        // Access the query parameter emp_id.....
 
+        let empId = req.params['emp_id'];
+        // console.log(req.params);
+        // console.log(empId);
+
+        // Check if empId is provided
+        if (!empId) {
+
+            return res.status(400).json({ error: "emp_id parameter is missing" });
+        }
+        // Search for the user based on the empId field
+        const user = await UserModel.findOne({ where: { empId: empId } });
+
+        // Check if user is found
+        if (user) {
+            return res.status(200).json({ user: user });
+        } else {
+            return res.status(404).json({ error: "User not found" });
+        }
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+}
+// post...........
 export const AddEmp=async(req,res)=>
 {
     const {name,email,designation,empId}=req.body;
@@ -36,9 +61,7 @@ export const AddEmp=async(req,res)=>
         return res.status(500).json({err:"Enternal server error"});
     }
 }
-
-//putS
-
+//putS..........
 export const UpdateEmp=async(req,res)=>
 {
     let empId=req.params.emp_id;
@@ -53,10 +76,7 @@ export const UpdateEmp=async(req,res)=>
         return res.status(500).json({err:"Enternal server error"});
     }
 }
-
-
-// delete
-
+// delete.....................
 export const DeleteEmp=async(req,res)=>
 {
     let empId=req.params.emp_id;

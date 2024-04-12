@@ -1,4 +1,4 @@
-import {  DataTypes } from "sequelize";
+import {DataTypes } from "sequelize";
 
 export const createUserModel=async(sequelize)=>
 {
@@ -8,9 +8,8 @@ export const createUserModel=async(sequelize)=>
         },
         email:{
             type:DataTypes.STRING,
-            unique:true
-        }
-        ,
+            unique:true,
+        },
         designation:{
             type:DataTypes.STRING,
         }
@@ -19,7 +18,6 @@ export const createUserModel=async(sequelize)=>
             type:DataTypes.STRING,
             unique:true
         }
-
     });
     return User;
 }

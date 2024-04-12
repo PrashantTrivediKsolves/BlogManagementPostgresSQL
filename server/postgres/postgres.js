@@ -1,6 +1,6 @@
 // Option 3: Passing parameters separately (other dialects)
 import { Sequelize } from "sequelize";
-import { createUserModel } from "../model/userSchema.js";
+import { createUserModel} from "../model/userSchema.js";
 const sequelize = new Sequelize('my_pgdb', 'postgres', '123456', {
     host: 'localhost',
     dialect:'postgres'
@@ -14,7 +14,6 @@ const sequelize = new Sequelize('my_pgdb', 'postgres', '123456', {
         UserModel=await createUserModel(sequelize);
         await sequelize.sync();
         console.log("Database created");
-
       } catch (error) {
         console.error('Unable to connect to the database:', error);
       }
@@ -23,3 +22,4 @@ const sequelize = new Sequelize('my_pgdb', 'postgres', '123456', {
     connection,
     UserModel
   }
+ 
