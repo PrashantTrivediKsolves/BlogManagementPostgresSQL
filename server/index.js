@@ -8,6 +8,7 @@ import routerBlog from './view/blogRoute.js';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
+import routerComment from './view/comment.js';
 import routeruser  from './view/status.js';
 import { authenticateToken } from "./middlewares/jwt.js";
 
@@ -24,7 +25,7 @@ app.use(routeruser);
 // app.use(authenticateToken);
  // Place authenticateToken middleware here
 app.use(routerBlog);
-
+app.use(routerComment)
 const PORT = 8001;
 
 app.listen(PORT, () => {
