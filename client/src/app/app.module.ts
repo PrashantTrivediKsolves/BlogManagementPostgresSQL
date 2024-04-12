@@ -15,6 +15,7 @@ import { UpdateBlogComponent } from './update-blog/update-blog.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { ShowMyBlogComponent } from './show-my-blog/show-my-blog.component';
 import { ShowAllCommentOnThisBlogComponent } from './show-all-comment-on-this-blog/show-all-comment-on-this-blog.component';
+import { FourzerofourComponent } from './fourzerofour/fourzerofour.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ShowAllCommentOnThisBlogComponent } from './show-all-comment-on-this-bl
     UpdateBlogComponent,
     AddCommentComponent,
     ShowMyBlogComponent,
-    ShowAllCommentOnThisBlogComponent
+    ShowAllCommentOnThisBlogComponent,
+    FourzerofourComponent
   ],
   imports: [
     BrowserModule,

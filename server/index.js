@@ -23,7 +23,8 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(routeruser);
 // app.use(authenticateToken);
- // Place authenticateToken middleware here
+
+// Place authenticateToken middleware here.....................
 app.use(routerBlog);
 app.use(routerComment)
 const PORT = 8001;
