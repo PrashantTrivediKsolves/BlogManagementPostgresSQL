@@ -49,8 +49,8 @@
     <h1>Post a Blog</h1>
     <form #blogcontent="ngForm" (ngSubmit)="postBlog(blogcontent.value)">
       <div class="mb-3">
-        <label for="username" class="form-label">Enter User Name</label>
-        <input type="text" class="form-control" name="username" ngModel required>
+        <label for="username" class="form-label">Enter a custom username if you wish to post anonymously.</label>
+        <input type="text" class="form-control" name="username" ngModel="{{userName}}" required>
       </div>
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
@@ -60,7 +60,7 @@
         <label for="content" class="form-label">Content</label>
         <textarea class="form-control" placeholder="Write your blog content here" style="height: 150px;" name="content" ngModel required></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Create-Blog</button>
     </form>
   </div>
 

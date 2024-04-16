@@ -11,9 +11,15 @@ export class ShowMyBlogComponent implements OnInit {
   constructor(private signinservice:SignUpService,private http:HttpClient ,private blogService:BlogServiceService) { }
   blogList:any;
   localData:any;
+  successMessage:string="Login SuccessFul";
+  deleteSuccess:string='';
+  // commentmessage:string='';
   ngOnInit(): void {
     // this.blogList=this.signinservice.myblogs
     // console.log('show-my-blogs',this.blogList);
+    setTimeout(() => {
+      this.successMessage=''
+    },3000);
     this.myblogs();
   }
   myblogs()
@@ -34,6 +40,11 @@ export class ShowMyBlogComponent implements OnInit {
     this.blogService.deleteBlog(id).subscribe(
       () => {
         console.log('Blog deleted successfully');
+        this.deleteSuccess="Blog deleted successfully";
+        setTimeout(()=>
+        {
+          this.deleteSuccess='';
+        },3000);
         // Refresh the blog list after deletion
         this.myblogs();
       },
@@ -42,4 +53,5 @@ export class ShowMyBlogComponent implements OnInit {
       }
     );
   }
+
 }

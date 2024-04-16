@@ -14,7 +14,6 @@
       gap: 20px;
       padding: 20px;
     }
-
     .blog-card {
       width: 300px;
       border: 1px solid #ccc;
@@ -22,26 +21,21 @@
       overflow: hidden;
       transition: transform 0.3s ease;
     }
-
     .blog-card:hover {
       transform: translateY(-5px);
     }
-
     .card-img-top {
       height: 200px;
       object-fit: cover;
     }
-
     .card-body {
       padding: 20px;
     }
-
     .card-title {
       font-size: 1.25rem;
       font-weight: bold;
       margin-bottom: 10px;
     }
-
     .card-text {
       font-size: 1rem;
       margin-bottom: 15px;
@@ -51,13 +45,15 @@
       display: flex;
       justify-content: space-between;
     }
-
     .btn-primary {
       margin-top: 10px;
     }
   </style>
 </head>
 <body>
+  <div *ngIf="blogMessage" class="alert alert-success ">
+    {{blogMessage}}
+  </div>
   <div class="container">
     <div class="blog-container">
       <div class="blog-card" *ngFor="let blog of BlogList">

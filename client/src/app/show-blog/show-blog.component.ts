@@ -12,8 +12,11 @@ export class ShowBlogComponent implements OnInit {
   constructor(private blogService:BlogServiceService) { }
   ngOnInit(): void {
     this.loadBlogList();
+    this.blogMessage=this.blogService.message;
+    setTimeout(()=>{
+      this.blogMessage='';
+    },3000)
   }
-
   loadBlogList(): void {
     this.blogService.getBlog().subscribe(
       (res) => {

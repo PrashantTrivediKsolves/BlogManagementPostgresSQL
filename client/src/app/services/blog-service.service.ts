@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class BlogServiceService {
-
+  message:string="";
   constructor(private http:HttpClient,private router:Router) { }
   addBlog(data:any)
   {
@@ -15,6 +15,7 @@ export class BlogServiceService {
   {
     if(res){
       console.log(res);
+      this.message="Blog created successfully";
       this.router.navigate(["All-blog"]);
     }
   })

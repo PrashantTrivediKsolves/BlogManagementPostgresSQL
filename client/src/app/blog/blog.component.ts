@@ -8,9 +8,14 @@ import { BlogServiceService } from '../services/blog-service.service';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-
+  userName:any
   constructor(private blogservice:BlogServiceService) { }
   ngOnInit(): void {
+    let userStore=localStorage.getItem('user');
+    console.log(userStore);
+    let userData=userStore&&JSON.parse(userStore);
+    console.log(userData);
+    this.userName=userData.username;
   }
   postBlog(data:any)
   {
