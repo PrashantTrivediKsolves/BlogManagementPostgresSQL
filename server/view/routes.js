@@ -13,7 +13,6 @@ router.put("/updateEmp/:emp_id",UpdateEmp);
 
 router.delete("/deleteEmp/:emp_id",DeleteEmp)
 
-
 // blog rutes
 
 export default router;

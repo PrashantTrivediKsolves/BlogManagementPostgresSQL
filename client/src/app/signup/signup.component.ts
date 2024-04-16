@@ -13,9 +13,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   signUp(formVal:any)
   {
+    console.log(formVal);
     this.signupservice.signUpUser(formVal);
+
   }
 }

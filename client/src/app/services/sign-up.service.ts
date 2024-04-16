@@ -7,7 +7,7 @@ import { EventEmitter } from '@angular/core';
   providedIn: 'root'
 })
 export class SignUpService {
-  isSellerLoggedIn=new BehaviorSubject<boolean>(false);
+  isUserLoggedIn=new BehaviorSubject<boolean>(false);
   isLoginError=new EventEmitter(false)
   checkLogin=false;
   myblogs:any;
@@ -28,19 +28,23 @@ export class SignUpService {
     console.log("helllo");
     const url = 'http://localhost:8001/login';
     const body = {
-      username: data.username,
-      password: data.password
+      email: data.email,
+      password: data.password,
     };
     console.log(body);
     this.http.post(url, body).subscribe(
       (res: any) => {
         console.log(res);
-        localStorage.setItem('user', JSON.stringify(res)); // Assuming server response contains user data
-        this.checkLogin=true;
-        this.router.navigate(['my-blog']);
+        if(res)
+        {
+          this.isLoginError.emit(false);
+          localStorage.setItem('user', JSON.stringify(res)); // Assuming server response contains user data
+          this.router.navigate(['my-blog']);
+        }
       },
       (error) => {
         console.log('Login failed:', error);
+        this.isLoginError.emit(true);
         // Handle login error (e.g., display error message)
       }
     );

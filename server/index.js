@@ -9,7 +9,9 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
 import routerComment from './view/comment.js';
+
 import routeruser  from './view/status.js';
+
 import { authenticateToken } from "./middlewares/jwt.js";
 
 import cors from 'cors';

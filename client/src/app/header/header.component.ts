@@ -50,6 +50,7 @@ export class HeaderComponent implements OnInit {
   {
     localStorage.removeItem('user');
     this.userType="default";
+    this.logservice.isLoginError.emit(false);
     this.logservice.checkLogin=false
     this.route.navigate(["signin"]);
 

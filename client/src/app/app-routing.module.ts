@@ -12,6 +12,10 @@ import { ShowAllCommentOnThisBlogComponent } from './show-all-comment-on-this-bl
 import { FourzerofourComponent } from './fourzerofour/fourzerofour.component';
 const routes: Routes = [
   {
+    path:"",
+    component:HomeComponent
+  },
+  {
     path:"signup",
     component:SignupComponent
   },
@@ -51,6 +55,7 @@ const routes: Routes = [
     path:"**",
     component:FourzerofourComponent
   }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
