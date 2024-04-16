@@ -65,7 +65,7 @@
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" ngModel required #password="ngModel" minlength="3">
+        <input type="password" class="form-control" id="password" name="password" ngModel required #password="ngModel" minlength="3" maxlength="10">
         <br>
         <span *ngIf="password.invalid&&password.touched" style="color: red;">Please Enter Valid Password</span>
       </div>

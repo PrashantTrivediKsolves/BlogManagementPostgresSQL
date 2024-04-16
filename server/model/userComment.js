@@ -14,7 +14,6 @@ export const createCommentModel=async(sequelize)=>
             type:DataTypes.TEXT,
             allowNull:false,
         },
-       
     });
     return commentBlog;
 }

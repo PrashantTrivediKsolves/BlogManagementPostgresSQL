@@ -20,6 +20,7 @@ export class ShowAllCommentOnThisBlogComponent implements OnInit {
         if(res)
           {
             this.AllCommentsWithUser=res;
+
           }
       })
     //console.log(userData);
