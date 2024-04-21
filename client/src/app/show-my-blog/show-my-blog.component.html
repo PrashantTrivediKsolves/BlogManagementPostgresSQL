@@ -71,14 +71,34 @@
           <img src="https://media.istockphoto.com/id/1411610324/photo/python-programming-language-computer-source-code-text-example-close-up-on-a-blue-surface.webp?b=1&s=170667a&w=0&k=20&c=w2oOwTJugP1Olq5q-KFz8JOei_wwyg6Dsus2oSjVxP0=" class="card-img-top" alt="Blog Image">
           <div class="card-body">
             <h5 class="card-title">{{ blog.title }}</h5>
-            <p class="card-text">{{ blog.content }}</p>
+            <!-- <p class="card-text">{{ blog.content }}</p>
             <div class="btn-container">
               <a [routerLink]="'/add-comment/' + blog.id" class="btn btn-primary" style="margin: 3px;">Add Comment </a>
               <a [routerLink]="'/update-blog/' + blog.id" class="btn btn-primary" style="margin: 3px;">Edit-Blog</a>
-              <button class="btn btn-danger" (click)="DeleteBlog(blog.id)"style="margin: 3px;" >Delete-Blog</button>
+              <button class="btn btn-danger" (click)="DeleteBlog(blog.id)"style="margin: 3px;" >Delete-Blog</button> -->
               <!-- Optional: Implement delete functionality -->
               <!-- <button class="btn btn-danger" (click)="DeleteBlog(blog.id)">Delete Blog</button> -->
+            <!-- </div> -->
+            <div class="btn-container">
+              <a [routerLink]="'/add-comment/' + blog.id" class="btn btn-primary" style="margin: 3px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-dots" viewBox="0 0 16 16">
+                  <path d="M14 1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5.414l-2.707 2.707A1 1 0 0 1 2 15V3a1 1 0 0 1 1.707-.707L5.414 4H14zm-1 2H4v8.293l1.146-1.147a1 1 0 0 1 1.414 0L8 12.586l1.439-1.439a1 1 0 0 1 1.414 0L13 12.293V4zm-2 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                </svg>
+              </a>
+
+              <a [routerLink]="'/update-blog/' + blog.id" class="btn btn-primary" style="margin: 3px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                  <path d="M2 1.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .354.146l2.5 2.5a.5.5 0 0 1 .146.354V12.5a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a2.5 2.5 0 0 1-2.5 2.5H2.5A2.5 2.5 0 0 1 0 14.5V4a2.5 2.5 0 0 1 2.5-2.5h5a.5.5 0 0 1 0 1H2.5a1.5 1.5 0 0 0-1.5 1.5v10a1.5 1.5 0 0 0 1.5 1.5h11a1.5 1.5 0 0 0 1.5-1.5v-9a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6.5a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5V12a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v1a.5.5 0 0 1-.5.5z"/>
+                </svg>
+              </a>
+
+              <button class="btn btn-danger" (click)="DeleteBlog(blog.id)" style="margin: 3px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                  <path d="M3.5 5.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9zM6 1a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4V1zm6 1v1H4V2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1z"/>
+                </svg>
+              </button>
             </div>
+
           </div>
         </div>
       </div>

@@ -19,14 +19,11 @@ export const getAllEmp=async(req,res)=>
 export const getEmp = async (req, res) => {
     try {
         // Access the query parameter emp_id.....
-
         let empId = req.params['emp_id'];
         // console.log(req.params);
         // console.log(empId);
-
         // Check if empId is provided
         if (!empId) {
-
             return res.status(400).json({ error: "emp_id parameter is missing" });
         }
         // Search for the user based on the empId field

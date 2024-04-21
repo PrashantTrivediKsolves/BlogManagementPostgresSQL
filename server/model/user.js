@@ -30,11 +30,8 @@ export const cuserModel = async (sequelize) => {
     });
     return CheckUser;
 }
-
 // // Example usage:
 
-// // Assuming you have initialized Sequelize and obtained the sequelize instance
-// const sequelize = ... // Your sequelize instance
 
 // // Define the checkUser model
 // const CheckUser = cuserModel(sequelize);

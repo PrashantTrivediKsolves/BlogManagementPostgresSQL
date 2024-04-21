@@ -33,7 +33,7 @@ routeruser.post('/signup', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Find user by email
+        // Find user by email....
         const user = await newuserModel.findOne({ where: { email } });
 
         // If user not found, return 404 error
@@ -62,7 +62,6 @@ routeruser.post('/signup', async (req, res) => {
           secure: true,   // Cookie sent over HTTPS only
           sameSite: 'none' // Cross-site requests allowed
       });
-      
         // Return success response with token and user info
         res.status(200).json({
             message: 'Login successful',
