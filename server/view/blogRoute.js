@@ -47,7 +47,7 @@ routerBlog.post('/blogs', async (req, res) => {
       }
   
       // Find all blogs authored by the user
-      const blogs = await BlogModel.findAll({ where: { username: user.username } });
+      const blogs = await BlogModel.findAll({ where: { username: user.username } ,order: [['createdAt', 'DESC']] });
   
       if (blogs.length === 0) {
         return res.status(404).json({ error: 'No blogs found for this user' });
