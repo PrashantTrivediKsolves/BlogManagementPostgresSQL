@@ -37,21 +37,22 @@ export class ShowMyBlogComponent implements OnInit {
     })
   }
   DeleteBlog(id: any): void {
-    this.blogService.deleteBlog(id).subscribe(
-      () => {
-        console.log('Blog deleted successfully');
-        this.deleteSuccess="Blog deleted successfully";
-        setTimeout(()=>
-        {
-          this.deleteSuccess='';
-        },3000);
-        // Refresh the blog list after deletion
-        this.myblogs();
-      },
-      (error) => {
-        console.error('Error deleting blog:', error);
-      }
-    );
+    if (confirm('Are you sure you want to delete this blog?')) {
+      this.blogService.deleteBlog(id).subscribe(
+        () => {
+          console.log('Blog deleted successfully');
+          this.deleteSuccess = 'Blog deleted successfully';
+          setTimeout(() => {
+            this.deleteSuccess = '';
+          }, 3000);
+          // Refresh the blog list after deletion
+          this.myblogs();
+        },
+        (error) => {
+          console.error('Error deleting blog:', error);
+        }
+      );
+    }
   }
 
 }
