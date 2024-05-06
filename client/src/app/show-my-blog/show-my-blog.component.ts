@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SignUpService } from '../services/sign-up.service';
 import { HttpClient } from '@angular/common/http';
 import { BlogServiceService } from '../services/blog-service.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-show-my-blog',
   templateUrl: './show-my-blog.component.html',
@@ -28,7 +29,8 @@ export class ShowMyBlogComponent implements OnInit {
     console.log(userStore);
     let userData=userStore&&JSON.parse(userStore);
     console.log(userData);
-    this.http.get(`http://localhost:8001/blogsuser/${userData.username}`).subscribe((res)=>
+    // this.http.get(`http://localhost:8001/blogsuser/${userData.username}`).subscribe((res)=>
+    this.http.get(`${environment.url}/blogsuser/${userData.username}`).subscribe((res)=>
     {
       if(res)
         {
@@ -42,11 +44,13 @@ export class ShowMyBlogComponent implements OnInit {
         () => {
           console.log('Blog deleted successfully');
           this.deleteSuccess = 'Blog deleted successfully';
+          this.myblogs();
           setTimeout(() => {
             this.deleteSuccess = '';
+            // this.myblogs();
           }, 3000);
           // Refresh the blog list after deletion
-          this.myblogs();
+
         },
         (error) => {
           console.error('Error deleting blog:', error);

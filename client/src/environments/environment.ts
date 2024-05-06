@@ -5,10 +5,11 @@
 export const environment = {
 
   production: false,
-  blogurl:  `http://localhost:8001/blogs`,
-  commenturl:'http://localhost:8001/comments',
-  signupUrl:"http://localhost:8001/signup",
-  signnUrl:"http://localhost:8001/login"
+  blogurl:  `http://localhost:8002/blogs`,
+  commenturl:'http://localhost:8002/comments',
+  signupUrl:"http://localhost:8002/signup",
+  signnUrl:"http://localhost:8002/login",
+  url:"http://localhost:8002"
 
 };
 
