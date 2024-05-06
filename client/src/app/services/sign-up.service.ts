@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { EventEmitter } from '@angular/core';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,8 @@ export class SignUpService {
   constructor(private http:HttpClient,private router:Router) { }
   signUpUser(data:any)
   {
-    this.http.post("http://localhost:8001/signup", data,{observe:'response'}).subscribe((res)=>
+    // this.http.post("http://localhost:8001/signup", data,{observe:'response'}).subscribe((res)=>
+      this.http.post(environment.signupUrl, data,{observe:'response'}).subscribe((res)=>
     {
       if(res)
         {
@@ -26,7 +28,7 @@ export class SignUpService {
   signinUser(data:any)
   {
     console.log("helllo");
-    const url = 'http://localhost:8001/login';
+    const url = environment.signnUrl;
     const body = {
       email: data.email,
       password: data.password,

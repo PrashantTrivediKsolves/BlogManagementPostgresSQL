@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +21,7 @@ export class CommentServiceService {
   }
   addCommentOnPost(commentuser:any)
   {
-    this.http.post("http://localhost:8001/comments",commentuser,{observe:'response'}).subscribe((res)=>
+    this.http.post(environment.commenturl,commentuser,{observe:'response'}).subscribe((res)=>
       {
         if(res){
           console.log(res);
@@ -30,7 +31,7 @@ export class CommentServiceService {
   }
   getAllCommentonPost(id:any)
   {
-    return this.http.get(`http://localhost:8001/comments/${id}`)
+    return this.http.get(`${environment.commenturl}/${id}`)
   }
 
 

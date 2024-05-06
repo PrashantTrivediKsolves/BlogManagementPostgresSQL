@@ -1,3 +1,11 @@
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file into process.env
+dotenv.config();
+
+// Now you can access variables defined in .env
+// console.log(process.env.DB_HOST); // Outputs: localhost
+
 import express from 'express';
 import { connection } from './postgres/postgres.js';
 import { connectionBlog } from './postgres/blog.js';
@@ -24,15 +32,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(routeruser);
+const port = process.env.PORT || 8000;
 // app.use(authenticateToken);
 
 // Place authenticateToken middleware here.....................
 app.use(routerBlog);
 app.use(routerComment)
-const PORT = 8001;
 
-app.listen(PORT, () => {
-    console.log(`Server is running at port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server is running at port ${port}`);
 });
 
 connectionBlog();
