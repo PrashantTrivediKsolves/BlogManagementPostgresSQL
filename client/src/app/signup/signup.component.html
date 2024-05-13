@@ -17,7 +17,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: aqua;
+      /* background-color: aqua; */
     }
     .container {
       width: 400px;
@@ -47,7 +47,8 @@
     }
   </style>
 </head>
-<body>
+<body style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+height: 100vh">
   <div class="container">
     <h2 class="text-center mb-4">Sign Up</h2>
     <form #formval="ngForm" (ngSubmit)="signUp(formval.value)">

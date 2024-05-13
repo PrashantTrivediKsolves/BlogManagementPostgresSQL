@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'
+import {  OnInit } from '@angular/core';
+import { Component, HostListener , ViewChild, ElementRef } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
 import { SignUpService } from '../services/sign-up.service';
 @Component({
   selector: 'app-header',
@@ -7,6 +8,7 @@ import { SignUpService } from '../services/sign-up.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild('navLinks') navLinks!: ElementRef<HTMLDivElement>;
   userType:string="default";
   userName:string="prashant Trivedi";
   constructor(private route:Router,private logservice:SignUpService) { }
@@ -44,6 +46,14 @@ export class HeaderComponent implements OnInit {
             }
         }
       })
+      this.route.events.subscribe((event) => {
+        if (event instanceof NavigationStart) {
+          // Reset text color when navigation starts
+          this.resetTextColor();
+          this.resetTextColor1();
+        }
+      });
+
 
   }
   logout()
@@ -55,4 +65,23 @@ export class HeaderComponent implements OnInit {
     this.route.navigate(["signin"]);
 
   }
+  changeTextColor(event: MouseEvent): void {
+    const targetElement = event.target as HTMLElement;
+    targetElement.style.color = 'red'; // Change the text color to red on click
+  }
+  resetTextColor(): void {
+    const anchorElement = document.querySelector('.navbar-brand') as HTMLElement;
+    if (anchorElement) {
+      anchorElement.style.color = ''; // Reset text color to default (empty string)
+    }
+  }
+  resetTextColor1(): void {
+    const anchorElements = document.querySelectorAll('.nav-link') as NodeListOf<HTMLElement>;
+
+    // Loop through each anchor element
+    anchorElements.forEach(element => {
+      element.style.color = ''; // Reset text color to default (empty string)
+    });
+  }
+
 }

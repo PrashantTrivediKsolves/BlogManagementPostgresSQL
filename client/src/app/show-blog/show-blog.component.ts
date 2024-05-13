@@ -41,4 +41,17 @@ export class ShowBlogComponent implements OnInit {
   //     }
   //   );
   // }
+  calculateCardDimensions(blogContent: string): { width: string, height: string } {
+    const contentLength = blogContent.length;
+    let width = '400px'; // Default width
+    let height = '300px'; // Default height
+
+    // Adjust dimensions based on content length
+    if (contentLength > 200) {
+      width = '300px'; // Decrease width for longer content
+      height = '400px'; // Increase height for longer content
+    }
+
+    return { width, height };
+  }
 }

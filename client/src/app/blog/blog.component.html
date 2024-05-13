@@ -11,7 +11,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: blueviolet;
+      /* background-color: blueviolet; */
     }
     .container {
       width: 500px;
@@ -43,7 +43,8 @@
     }
   </style>
 </head>
-<body>
+<body style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+height: 100vh">
   <div class="container">
     <h1>Post a Blog</h1>
     <form #blogcontent="ngForm" (ngSubmit)="postBlog(blogcontent.value)">
