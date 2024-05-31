@@ -25,12 +25,18 @@ import { authenticateToken } from "./middlewares/jwt.js";
 import cors from 'cors';
 
 const app = express();
+
 app.use(cors());
+
 app.use(express.json());
 app.use(router);
+
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(bodyParser.json());
+
 app.use(cookieParser());
+
 app.use(routeruser);
 const port = process.env.PORT || 8000;
 // app.use(authenticateToken);

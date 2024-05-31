@@ -10,7 +10,7 @@ export class CommentServiceService {
   BlogId:any;
   constructor(private http:HttpClient,private router:Router,private route:ActivatedRoute) { }
   ngOnInit(): void {
-    let blogId=this.route.snapshot.paramMap.get('postId');
+    let blogId=this.route.snapshot.paramMap.get('postId');webkitURL
     this.BlogId=blogId;
     console.log("hello");
     console.log("chaeck id",blogId);

@@ -2,11 +2,13 @@ import {  OnInit } from '@angular/core';
 import { Component, HostListener , ViewChild, ElementRef } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { SignUpService } from '../services/sign-up.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
+
 export class HeaderComponent implements OnInit {
   @ViewChild('navLinks') navLinks!: ElementRef<HTMLDivElement>;
   userType:string="default";
@@ -53,8 +55,6 @@ export class HeaderComponent implements OnInit {
           this.resetTextColor1();
         }
       });
-
-
   }
   logout()
   {
@@ -63,7 +63,6 @@ export class HeaderComponent implements OnInit {
     this.logservice.isLoginError.emit(false);
     this.logservice.checkLogin=false
     this.route.navigate(["signin"]);
-
   }
   changeTextColor(event: MouseEvent): void {
     const targetElement = event.target as HTMLElement;
